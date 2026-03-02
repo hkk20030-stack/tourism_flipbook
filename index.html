@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tourist Journey and Guided Tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       LOADING SCREEN
+  ══════════════════════════════════════════ -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-icon">📖</div>
+      <p class="loader-title">Tourist Journey</p>
+      <p class="loader-sub">Loading flipbook…</p>
+      <div class="loader-bar-wrap"><div class="loader-bar-fill" id="loaderBar"></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MAIN APP  (hidden until loaded)
+  ══════════════════════════════════════════ -->
+  <div id="app" class="app-hidden">
+
+    <!-- ── TOP CONTROLS BAR (like HeyZine) ── -->
+    <div id="topBar">
+      <div class="tb-left">
+        <button class="tb-btn" id="btnPrev" title="Previous page">&#8249;</button>
+        <span class="tb-pagenum" id="pageNum">1 / 12</span>
+        <button class="tb-btn" id="btnNext" title="Next page">&#8250;</button>
+      </div>
+      <div class="tb-right">
+        <button class="tb-icon-btn" id="btnToc" title="Table of contents">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="tb-icon-btn" id="btnZoomIn" title="Zoom in">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="tb-icon-btn" id="btnFullscreen" title="Fullscreen">
+          <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+        <button class="tb-icon-btn" id="btnSound" title="Sound">
+          <svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── TABLE OF CONTENTS PANEL ── -->
+    <div id="tocPanel" class="toc-hidden">
+      <div class="toc-inner">
+        <div class="toc-header">
+          <span>Table of Contents</span>
+          <button id="btnTocClose">✕</button>
+        </div>
+        <ul id="tocList"></ul>
+      </div>
+    </div>
+    <div id="tocOverlay" class="toc-hidden"></div>
+
+    <!-- ── FLIPBOOK STAGE ── -->
+    <div id="stage">
+      <!-- Left shadow page (depth effect) -->
+      <div class="page-shadow page-shadow-left" id="shadowLeft"></div>
+
+      <!-- THE BOOK -->
+      <div id="book">
+        <!-- Pages injected by JS -->
+      </div>
+
+      <!-- Right shadow page (depth effect) -->
+      <div class="page-shadow page-shadow-right" id="shadowRight"></div>
+
+      <!-- Click zones for flipping -->
+      <div class="flip-zone flip-zone-left"  id="flipLeft"></div>
+      <div class="flip-zone flip-zone-right" id="flipRight"></div>
+    </div>
+
+    <!-- ── BOTTOM SLIDER BAR (like HeyZine) ── -->
+    <div id="bottomBar">
+      <div class="bb-inner">
+        <span class="bb-label" id="bbLabel">Page 1</span>
+        <input type="range" id="pageSlider" min="0" max="11" value="0" step="1" />
+        <span class="bb-label" id="bbTotal">12</span>
+      </div>
+    </div>
+
+  </div><!-- /#app -->
+
+  <!-- ── ZOOM OVERLAY ── -->
+  <div id="zoomOverlay" class="zoom-hidden">
+    <div id="zoomBox">
+      <button id="zoomClose">✕</button>
+      <div id="zoomContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
