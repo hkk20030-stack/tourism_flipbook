@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist Journey and Guided Tour</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-book">
+        <div class="loader-page"></div>
+        <div class="loader-page"></div>
+      </div>
+      <p class="loader-text">Loading Flipbook…</p>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="app-hidden">
+
+    <!-- Top Toolbar (HeyZine style) -->
+    <div id="toolbar">
+      <div class="toolbar-left">
+        <span id="pageInfo">1 / 12</span>
+      </div>
+      <div class="toolbar-right">
+        <button id="btnPrev" title="Previous page">&#8249;</button>
+        <button id="btnNext" title="Next page">&#8250;</button>
+        <button id="btnToc" title="Table of contents">&#9776;</button>
+        <button id="btnZoomIn" title="Zoom in">&#128269;</button>
+        <button id="btnFullscreen" title="Fullscreen">&#x26F6;</button>
+        <button id="btnSound" title="Sound">&#128266;</button>
+      </div>
+    </div>
+
+    <!-- Table of Contents Panel -->
+    <div id="tocPanel" class="toc-hidden">
+      <div class="toc-header">
+        <span>Table of Contents</span>
+        <button id="btnCloseToc">&times;</button>
+      </div>
+      <ul id="tocList"></ul>
+    </div>
+
+    <!-- Book Stage -->
+    <div id="stage">
+      <div id="bookWrap">
+        <!-- Flip Arrows -->
+        <div id="flipLeft" class="flip-arrow flip-left" title="Previous">&#10094;</div>
+        <div id="flipRight" class="flip-arrow flip-right" title="Next">&#10095;</div>
+
+        <!-- Book Container -->
+        <div id="book">
+          <!-- Pages injected by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Slider -->
+    <div id="bottomBar">
+      <input type="range" id="pageSlider" min="0" max="11" value="0" step="1">
+      <div id="thumbnails"></div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
